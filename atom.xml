@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://vivij.github.io</id>
     <title>Vivij</title>
-    <updated>2019-08-02T03:09:35.545Z</updated>
+    <updated>2019-08-02T05:13:55.815Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://vivij.github.io"/>
     <link rel="self" href="https://vivij.github.io/atom.xml"/>
@@ -11,13 +11,58 @@
     <icon>https://vivij.github.io/favicon.ico</icon>
     <rights>All rights reserved 2019, Vivij</rights>
     <entry>
-        <title type="html"><![CDATA[Date time]]></title>
+        <title type="html"><![CDATA[to viv]]></title>
         <id>https://vivij.github.io/post/hello</id>
         <link href="https://vivij.github.io/post/hello">
         </link>
-        <updated>2019-08-02T02:08:56.000Z</updated>
+        <updated>2022-08-31T02:08:56.000Z</updated>
+        <summary type="html"><![CDATA[<p>Hello you viv.</p>
+]]></summary>
         <content type="html"><![CDATA[<p>Hello you viv.</p>
+<!-- more -->
+<p><img src="https://vivij.github.io/post-images/1564716346735.png" alt=""></p>
 <h3 id="start-from-11">Start from 1.1</h3>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Kafka命令]]></title>
+        <id>https://vivij.github.io/post/kafka-ming-ling</id>
+        <link href="https://vivij.github.io/post/kafka-ming-ling">
+        </link>
+        <updated>2019-08-02T03:10:30.000Z</updated>
+        <summary type="html"><![CDATA[<p>部分命令收集</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>部分命令收集</p>
+<!-- more -->
+<h4 id="查看组">查看组</h4>
+<p>./bin/kafka-consumer-groups.sh  --bootstrap-server 172.24.108.10:9092 --list</p>
+<h4 id="查看组的详情">查看组的详情</h4>
+<p>./bin/kafka-consumer-groups.sh  --bootstrap-server 172.24.108.10:9092 --group spring-consumer --describe</p>
+<h4 id="查看消息内容">查看消息内容</h4>
+<p>./bin/kafka-run-class.sh kafka.tools.DumpLogSegments --files /usr/local/kafka_2.11-1.1.1/data/kafka-logs/request_before-0/00000000000000000000.log  --print-data-log<br>
+/usr/local/kafka-manager-2.0.0.1/data/kafka-logs/request_before-0/00000000000000000000.log</p>
+<h4 id="创建topic">创建topic</h4>
+<p>bin/kafka-topics.sh --create  --replication-factor 1 --partitions 16 --zookeeper 172.24.108.10:2181 --topic ts_report_mq2</p>
+<h4 id="查看topic列表">查看topic列表</h4>
+<p>bin/kafka-topics.sh --list --zookeeper 172.24.108.10:2181</p>
+<h4 id="查看topic详情">查看topic详情</h4>
+<p>./bin/kafka-topics.sh --zookeeper 172.24.108.10:2181 --describe --topic ts_report_mq</p>
+<h4 id="修改partition数量">修改partition数量</h4>
+<p>./bin/kafka-topics.sh --alter --zookeeper 172.24.108.10:2181 --topic ts_report_mq --partitions 16</p>
+<h4 id="查看topic某分区偏移量最大小值">查看topic某分区偏移量最大（小）值</h4>
+<p>./bin/kafka-run-class.sh kafka.tools.GetOffsetShell  --time -1 --broker-list 172.24.108.10:9092  --topic ts_report_mq</p>
+<h4 id="开启一个生产者">开启一个生产者</h4>
+<p>bin/kafka-console-producer.sh --broker-list 172.24.108.10:9092 --topic ts_report_mq</p>
+<h4 id="开启一个消费者">开启一个消费者</h4>
+<p>./bin/kafka-console-consumer.sh --zookeeper 172.24.108.10:2181 --from-beginning  --topic ts_report_mq<br>
+bin/kafka-console-consumer.sh --bootstrap-server 172.24.108.10:9092 --topic ts_report_mq --from-beginning</p>
+<!-- more -->
+<p><strong>sh启动脚本</strong><br>
+export JMX_PORT=9999;nohup ./bin/kafka-server-start.sh config/server.properties &gt;/dev/null 2&gt;&amp;1 &amp;</p>
+<p>/usr/local/kafka-manager-2.0.0.1/bin/kafka-manager -Dapplication.home='/usr/local/kafka_2.11-1.1.1' -Dconfig.file=/usr/local/kafka-manager-2.0.0.1/conf/application.conf -Dhttp.port=9000 &gt;/dev/null 2&gt;&amp;1 &amp;</p>
+<p>./bin/kafka-run-class.sh kafka.tools.DumpLogSegments  --deep-iteration --files /usr/local/kafka_2.11-1.1.1/data/kafka-logs/ts_report_mq-0/00000000000000000000.log Dumping /usr/local/kafka_2.11-1.1.1/data/kafka-logs/ts_report_mq-0/00000000000000000000.log</p>
+<p>客户端代码<br>
+<img src="https://vivij.github.io/post-images/1564715500249.jpg" alt=""></p>
 ]]></content>
     </entry>
 </feed>
